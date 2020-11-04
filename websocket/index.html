@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>WebSocket</title>
+</head>
+<body>
+    <!-- 送信ボタン -->
+    <input type="button" id="send_button" value="送信">
+
+    <script>
+        // WebSocketのクライアントの生成
+        let ws = new WebSocket('ws://localhost:5001')
+
+        // 接続時に呼ばれる
+        ws.addEventListener('open', e => {
+            console.log('open')
+        })
+
+        // サーバからのデータ受信時に呼ばれる
+        ws.addEventListener('message', e => {
+            console.log(e.data)
+        })
+
+        // ボタンクリック時に呼ばれる
+        document.getElementById('send_button').addEventListener('click', e => {
+            // サーバへのデータ送信
+            ws.send('hello')
+        })
+    </script>
+</body>
+</html>

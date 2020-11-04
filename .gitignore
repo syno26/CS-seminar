@@ -1,0 +1,8 @@
+# .json files
+*.json
+# enviroment files
+node_modules/
+# study
+study/
+# test
+test/
